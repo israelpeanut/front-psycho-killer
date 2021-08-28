@@ -36,7 +36,6 @@ export const Login = () => {
         }
         else
         {
-          alert("enviando form");
           console.log(answers)
         }
         
