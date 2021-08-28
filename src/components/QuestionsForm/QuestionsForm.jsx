@@ -8,6 +8,8 @@ import {
         } from "react-bootstrap";
 import questions from '../../data/questions.json';
 
+const missingFieldError = 'Hey! No te olvides de esto!';
+
 export const QuestionsForm = () => {
   const [validated, setValidated] = useState(true);
   const [sent, setSent] = useState(false);
@@ -65,7 +67,7 @@ export const QuestionsForm = () => {
     
       <Form noValidate validated={validated} onSubmit={handleSubmit} className="needs-validation">
         {profile.questions.map((question) => (
-          <Row className="mb-3" key={question.id}>
+          <Row className="mb-3 alternatives-question" key={question.id}>
             <Form.Group as={Col} md="4">
               <div className="question-title">{question.title} <span className="error">*</span></div>
                 {question.alternatives.map((alternative) => (
@@ -74,19 +76,18 @@ export const QuestionsForm = () => {
                     type='radio'
                     label={alternative.text}
                     name={question.title}
-                    id={`disabled-default-radio`}
                     className="question-option"
                     onChange={(e) => onChangeRadio(e.target.value, question.title)}
                     value={alternative.text}
                     required
                   />
                 ))}
-              {(sent && findAnswer(answers, question.title) === undefined) && <div className="error error-label">Hey! No te olvides de esto!</div>}
+              {(sent && findAnswer(answers, question.title) === undefined) && <div className="error error-label">{ missingFieldError }</div>}
             </Form.Group>
           </Row>
         ))}
-        <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Row className="mb-3 long-question">
+          <Form.Group as={Col} md="4">
             <div className="question-title">{profile.long_question} <span className="error">*</span></div>
             <FormControl
               as="textarea"
@@ -95,14 +96,14 @@ export const QuestionsForm = () => {
               onChange={onChangeText}
               required
             />
-            {(sent && !answers.long_question.answer)  && <div className="error error-label">Hey! No te olvides de esto!</div>}
+            {(sent && !answers.long_question.answer)  && <div className="error error-label">{ missingFieldError }</div>}
           </Form.Group>
         </Row>
 
         <Row className="mb-3">
         <Button
           type="submit"
-          className="peanut-button"
+          className="peanut-button btn-dark"
           >Enviar</Button>
         </Row>
       </Form> 

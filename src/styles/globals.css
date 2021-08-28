@@ -26,7 +26,7 @@ body {
 }
 
 .question-option {
-  margin-bottom: 8px;
+  margin-bottom: 6px !important;
 }
 
 .error {
@@ -38,7 +38,35 @@ body {
   line-height: 19px;
 }
 
+.alternatives-question {
+  margin-bottom: 26px;
+}
+
+.long-question {
+  padding-top: 10px;
+}
+
 .peanut-button {
-  width: 160px;
+  width: 160px !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 28px !important;
   background-color: #212529;
+}
+
+/*hacks*/
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: #212529 !important;
+}
+
+.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
+  color: #212529 !important;
+}
+
+.was-validated .form-check-input:invalid, .form-check-input.is-invalid {
+  border-color: #212529 !important;
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+  border-color: #212529 !important;
 }
