@@ -8,8 +8,8 @@ export const updateStepChallenger = async body => {
   };
 
   console.log("ingreso");
-  // const url = `https://api-pyscho-killer.herokuapp.com/updateStepChallenger`;
-  const url = `http://localhost:3001/updateStepChallenger`;
+  const url = `https://api-pyscho-killer.herokuapp.com/updateStepChallenger`;
+  // const url = `http://localhost:3001/updateStepChallenger`;
   const resp = await fetch(url, requestOptions);
   const data = await resp.json();
 
