@@ -22,10 +22,7 @@ export const Vacant = () => {
         <Navbar bg="light">
           <Navbar.Brand href="#">
             <img
-              alt=""
               src="https://res.cloudinary.com/dorrola/image/upload/v1630152665/Logo_Vectorial_khatse.svg"
-              width="30"
-              height="30"
               className="d-inline-block align-top ms-3"
               alt="Responsive image"
               width="87"
@@ -36,10 +33,7 @@ export const Vacant = () => {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Brand href="#">
               <img
-                alt=""
                 src="https://res.cloudinary.com/dorrola/image/upload/v1630155103/VectorMenu_v2k8ow.png"
-                width="30"
-                height="30"
                 className="img-responsive d-flex align-items-end flex-column"
                 alt="Responsive image"
                 width="24"
@@ -112,6 +106,7 @@ export const Vacant = () => {
             {listItemAwaitForYou.map((description, id) => (
               <ItemList
                 id={"listItemAwaitForYou-" + id}
+                key={id}
                 description={description}
               />
             ))}
@@ -125,7 +120,7 @@ export const Vacant = () => {
 
           <div className="row mb-2">
             {morePointIf.map((description, id) => (
-              <ItemList id={"morePointIf-" + id} description={description} />
+              <ItemList id={"morePointIf-" + id} description={description} key={id} />
             ))}
           </div>
 
@@ -135,7 +130,7 @@ export const Vacant = () => {
 
           <div className="row mb-2">
             {someBenefits.map((description, id) => (
-              <ItemList id={"someBenefits-" + id} description={description} />
+              <ItemList id={"someBenefits-" + id} description={description} key={id} />
             ))}
           </div>
 

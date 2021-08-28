@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
-import { StateMachine } from "../../components/stateMachine";
+import { StateMachine } from "../../components/StateMachine";
 
 const Home = () => {
   return (
