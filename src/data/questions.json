@@ -2,18 +2,42 @@
     "fullstack": {
         "questions": [
             {
+                "id": "1",
                 "title": "¿Cómo le gusta la piña a la tía?",
                 "alternatives": [
-                    "A la tia le gusta la piña pelá",
-                    "Tangananica"
+                    {"id": "1", "text": "A la tia le gusta la piña pelá"},
+                    {"id": "2", "text": "Tangananica"}
                 ]
             },
             {
+                "id": "2",
                 "title": "¿Qué te parece responder preguntas?",
                 "alternatives": [
-                    "Me gusta",
-                    "Me encanta",
-                    "me regusta"
+                    {"id": "1", "text": "Me gusta"},
+                    {"id": "2", "text": "Me encanta"},
+                    {"id": "3", "text": "me regusta"}
+                ]
+            }
+        ],
+        "long_question": "¿Eres capaz de tomar decisiones o prefieres que las tomen por ti?"
+    },
+    "ux": {
+        "questions": [
+            {
+                "id": "1",
+                "title": "¿UX, Cómo le gusta la piña a la tía?",
+                "alternatives": [
+                    {"id": "1", "text": "UX, A la tia le gusta la piña pelá"},
+                    {"id": "2", "text": "UX, Tangananica"}
+                ]
+            },
+            {
+                "id": "2",
+                "title": "UX, ¿Qué te parece responder preguntas?",
+                "alternatives": [
+                    {"id": "1", "text": "UX, Me gusta"},
+                    {"id": "2", "text": "UX, Me encanta"},
+                    {"id": "3", "text": "UX, me regusta"}
                 ]
             }
         ],
