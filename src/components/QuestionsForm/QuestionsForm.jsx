@@ -13,7 +13,7 @@ const missingFieldError = 'Hey! No te olvides de esto!';
 export const QuestionsForm = () => {
   const [validated, setValidated] = useState(true);
   const [sent, setSent] = useState(false);
-  const [profile, setProfile] = useState({...questions.fullstack})
+  const [profile, setProfile] = useState({...questions.ux})
   const [answers, setAnswers] = useState({
     questions:[],
     long_question: {question:profile.long_question, answer: ""},

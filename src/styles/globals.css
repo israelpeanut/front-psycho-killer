@@ -54,6 +54,30 @@ body {
   background-color: #212529;
 }
 
+.peanut-button-wide {
+  width: 240px !important;
+}
+
+.thankyou {
+  margin-top: 50px;
+}
+
+.thankyou h3 {
+  font-size: 28px;
+  margin-bottom: 34px;
+  font-weight: 500;
+}
+
+.thankyou p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  line-height: 24px;
+}
+
+.centered {
+  text-align: center;
+}
+
 /*hacks*/
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
   color: #212529 !important;
