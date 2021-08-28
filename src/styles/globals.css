@@ -17,6 +17,10 @@ body {
   background-color: green;
 }
 
+.questions-title {
+  margin-bottom: 27px;
+}
+
 .question-title {
   margin-bottom: 8px;
 }

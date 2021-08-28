@@ -10,6 +10,7 @@ import questions from '../../data/questions.json';
 
 export const QuestionsForm = () => {
   const [validated, setValidated] = useState(true);
+  const [sent, setSent] = useState(false);
   const [profile, setProfile] = useState({...questions.fullstack})
   const [answers, setAnswers] = useState({
     questions:[],
@@ -21,38 +22,46 @@ export const QuestionsForm = () => {
     console.log(form.checkValidity())
     event.preventDefault();
     event.stopPropagation();
-    
+
+    setSent(true);
+
     if (!form.checkValidity()) {
       
     }
-    alert("enviando form");
+    else
+    {
+      alert("enviando form");
+      console.log(answers)
+    }
+    
     setValidated(true);
   }
 
   const onChangeRadio = (selected, question) => {
     const tempAnswers = {...answers};
-    const item = tempAnswers.questions.find(x => x.question === question)
+    const item = findAnswer(tempAnswers, question);
 
     if(item)
       item.answer = selected
     else
       tempAnswers.questions.push({question:question, answer:selected})
     
-    setAnswers({answers, ...tempAnswers});
-    console.log(answers);
+    setAnswers({...answers, ...tempAnswers});
   }
+
+  const findAnswer = (origin, question) =>
+    origin.questions.find(x => x.question === question)
 
   const onChangeText = (event) => {
     const tempAnswers = {...answers};
     tempAnswers.long_question.answer = event.target.value;
     
     setAnswers({answers, ...tempAnswers});
-    console.log(answers);
   }
 
   return (
     <div className="p-3">
-      <h4>Postula a este trabajo</h4>
+      <h4 className="questions-title">Postula a este trabajo</h4>
     
       <Form noValidate validated={validated} onSubmit={handleSubmit} className="needs-validation">
         {profile.questions.map((question) => (
@@ -72,7 +81,7 @@ export const QuestionsForm = () => {
                     required
                   />
                 ))}
-              {!validated && <div className="error error-label">Hey! No te olvides de esto!</div>}
+              {(sent && findAnswer(answers, question.title) === undefined) && <div className="error error-label">Hey! No te olvides de esto!</div>}
             </Form.Group>
           </Row>
         ))}
@@ -86,7 +95,7 @@ export const QuestionsForm = () => {
               onChange={onChangeText}
               required
             />
-            {!validated && <div className="error error-label">Hey! No te olvides de esto!</div>}
+            {(sent && !answers.long_question.answer)  && <div className="error error-label">Hey! No te olvides de esto!</div>}
           </Form.Group>
         </Row>
 
