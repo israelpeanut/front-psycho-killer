@@ -1,9 +1,9 @@
 import React from "react";
-import { QuestionsForm } from "../../components/QuestionsForm";
+import { QuestionsForm } from "../../components/QuestionsForm/QuestionsForm";
 
 export default function Questions() {
   return (
-    <div>
+    <div className="container container-fluid">
       <QuestionsForm />
     </div>
   );

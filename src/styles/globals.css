@@ -16,3 +16,25 @@ body {
 .green {
   background-color: green;
 }
+
+.question-title {
+  margin-bottom: 8px;
+}
+
+.question-option {
+  margin-bottom: 8px;
+}
+
+.error {
+  color: red;
+}
+
+.error-label {
+  font-size: 11px;
+  line-height: 19px;
+}
+
+.peanut-button {
+  width: 160px;
+  background-color: #212529;
+}
