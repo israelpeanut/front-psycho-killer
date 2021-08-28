@@ -128,7 +128,7 @@ export const Vacant = () => {
 
           <div className="row mb-2">
             {morePointIf.map((description, id) => (
-              <ItemList id={"morePointIf-" + id} description={description} />
+              <ItemList id={"morePointIf-" + id} description={description} key={id} />
             ))}
           </div>
 
@@ -138,7 +138,7 @@ export const Vacant = () => {
 
           <div className="row mb-2">
             {someBenefits.map((description, id) => (
-              <ItemList id={"someBenefits-" + id} description={description} />
+              <ItemList id={"someBenefits-" + id} description={description} key={id} />
             ))}
           </div>
 
