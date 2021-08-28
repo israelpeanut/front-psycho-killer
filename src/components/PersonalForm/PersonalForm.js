@@ -3,11 +3,46 @@ import { Button, Form, Row, InputGroup } from "react-bootstrap";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { Header } from "./../Header";
+import { createPostulation } from "../../helpers/createPostulation";
 
 export const PersonalForm = ({ onBackHandler, onNextHandler }) => {
   const [item, setItem] = useState({ cbkResidencia: undefined });
 
   const { cbkResidencia } = item;
+
+  const onSubmithandler = async event => {
+    if (!cbkResidencia) {
+      setItem(prevState => ({
+        ...prevState,
+        cbkResidencia: ""
+      }));
+      return;
+    }
+
+    console.log("here", event);
+
+    const { city, email, file, fullName, nationality, phone } = event;
+
+    const body = {
+      postulation: {
+        vacantId: "61227e66b98fd2100f4127db",
+        origin: "LANDING",
+        active: true,
+        stepInterview: "LANDING"
+      },
+      postulant: {
+        name: fullName,
+        nationality,
+        email: email,
+        permanentResidence: cbkResidencia === "si" ? true : false,
+        phone: phone
+      }
+    };
+
+    const data = await createPostulation(body);
+
+    onNextHandler();
+  };
 
   const handleChangeRadio = e => {
     e.persist();
@@ -43,18 +78,7 @@ export const PersonalForm = ({ onBackHandler, onNextHandler }) => {
       <div className="row p-3">
         <Formik
           validationSchema={schema}
-          onSubmit={event => {
-            if (!cbkResidencia) {
-              setItem(prevState => ({
-                ...prevState,
-                cbkResidencia: ""
-              }));
-              return;
-            }
-
-            console.log("here", event);
-            onNextHandler();
-          }}
+          onSubmit={event => onSubmithandler(event)}
           initialValues={{
             fullName: "",
             email: "",

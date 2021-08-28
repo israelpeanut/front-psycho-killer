@@ -8,15 +8,13 @@ import {
   someBenefits
 } from "./../../utils/generalText";
 
-import { getGift } from "./../../helpers/getGifs";
+import { getGift } from "../../helpers/createPostulation";
 
 export const Vacant = () => {
   const router = useRouter();
 
   const onClickHandler = async () => {
-    const data = await getGift();
-    console.log(data);
-    // router.push("/postulacion/form");
+    router.push("/postulacion/form");
   };
   return (
     <>
