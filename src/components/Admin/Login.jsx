@@ -1,14 +1,17 @@
 import { useState } from "react";
+import redirect from 'nextjs-redirect'
+import { useRouter } from 'next/router'
+
 import { 
         Button,
         Row,
-        Col,
         Form,
-        Input
+        Spinner
      } from "react-bootstrap"
 import Image from 'next/image'
 
 export const Login = () => {
+    const router = useRouter()
     const [validated, setValidated] = useState(true);
     const [sent, setSent] = useState(false);
 
@@ -19,6 +22,14 @@ export const Login = () => {
         event.stopPropagation();
     
         setSent(true);
+
+        setTimeout(() => {
+            console.log("jumping")
+            router.push('https://admin-psychokiller.netlify.app/')
+            // redirect('https://admin-psychokiller.netlify.app/');
+        }, 1000)
+         
+        //
     
         if (!form.checkValidity()) {
           
@@ -67,20 +78,31 @@ return (
                     <Form noValidate validated={validated} onSubmit={handleSubmit} className="needs-validation">
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Correo</Form.Label>
-                        <Form.Control type="email" placeholder="admin@correo.cl" required />
+                        <Form.Control type="email" placeholder="admin@correo.cl" required disabled={sent} />
                     </Form.Group>
                     
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Contraseña</Form.Label>
-                        <Form.Control type="password" placeholder="contraseña" required />
+                        <Form.Control type="password" placeholder="contraseña" required disabled={sent} />
                     </Form.Group>
                     
                     <div className="admin-login-footer">
                         <Button
                         type="submit"
                         className="peanut-button btn-dark admin-login-button"
-                        >Iniciar Sesión</Button>
-
+                        disabled={sent}
+                        >
+                        {sent && 
+                            <Spinner
+                                as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true"
+                                />
+                        }
+                        {' '}Iniciar Sesión
+                            </Button>
                         <br />
                         <a href="#" className="forgot-password">¿Olvidaste tu contraseña?</a>
                     </div>
