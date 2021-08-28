@@ -1,11 +1,12 @@
 import React from "react";
 // import { Postulation } from "../components/Postulation/Postulacion";
 import { PersonalForm } from "../components/PersonalForm/PersonalForm";
+import { StateMachine } from "../components/stateMachine";
 
 export default function Home() {
   return (
     <div>
-      <PersonalForm />
+      <StateMachine />
     </div>
     // <div className={styles.container}>
     //   <Head>
