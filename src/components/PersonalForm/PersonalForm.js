@@ -1,10 +1,57 @@
 import React from "react";
+import { Button, Form } from "react-bootstrap";
 
 export const PersonalForm = () => {
   return (
     <div>
       <div className="container container-fluid">
         <div class="row p-3"> menu</div>
+        <div className="row p-3">
+          <h4 className="">Postula a este trabajo</h4>
+        </div>
+        <div class="row p-3">
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>{" "}
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>{" "}
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>{" "}
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            <Button variant="dark" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </div>
+        {/* <div class="row p-3"> menu</div>
         <div className="row p-3">
           <h4 className="">Postula a este trabajo</h4>
         </div>
@@ -18,7 +65,7 @@ export const PersonalForm = () => {
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Angel la niña de las flores"
             />
             <small id="emailHelp" className="form-text text-muted">
               Hey! Se te olvido esto!
@@ -125,7 +172,7 @@ export const PersonalForm = () => {
                 id="flexRadioDefault1"
               />
               <label className="form-check-label" for="flexRadioDefault1">
-                Default radio
+                si
               </label>
             </div>
             <div class="form-check">
@@ -137,7 +184,7 @@ export const PersonalForm = () => {
                 checked
               />
               <label class="form-check-label" for="flexRadioDefault2">
-                Default checked radio
+                no
               </label>
             </div>
             <small id="emailHelp" className="form-text text-muted">
@@ -155,7 +202,7 @@ export const PersonalForm = () => {
               Siguiente
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
