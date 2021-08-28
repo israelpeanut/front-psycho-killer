@@ -114,6 +114,7 @@ export const Vacant = () => {
             {listItemAwaitForYou.map((description, id) => (
               <ItemList
                 id={"listItemAwaitForYou-" + id}
+                key={id}
                 description={description}
               />
             ))}
