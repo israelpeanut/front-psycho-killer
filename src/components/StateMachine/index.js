@@ -7,7 +7,8 @@ import { ThankYouScreen } from "../QuestionsForm/ThankYouScreen";
 export const StateMachine = () => {
   const router = useRouter();
 
-  const { step = "form" } = router.query;
+  console.log(router.query);
+  const { step = "form", id: vacantId } = router.query;
   console.log(step);
 
   const stateMachineStep = [
@@ -19,11 +20,11 @@ export const StateMachine = () => {
         <PersonalForm
           onBackHandler={() => {
             console.log("onbackhandler PersonalForm");
-            router.push("/vacante");
+            router.push(`/vacante?id=${vacantId}`);
           }}
-          onNextHandler={() => {
+          onNextHandler={id => {
             console.log("onbackhandler PersonalForm");
-            router.push("/postulacion/question", undefined, {
+            router.push(`/postulacion/question?id=${id}`, undefined, {
               shallow: true
             });
           }}
@@ -38,11 +39,11 @@ export const StateMachine = () => {
         <QuestionsForm
           onBackHandler={() => {
             console.log("onbackhandler QuestionsForm");
-            router.push("/postulacion");
+            router.push(`/postulacion`);
           }}
           onNextHandler={() => {
             console.log("onNextHandler QuestionsForm");
-            router.push("/postulacion/exito", undefined, {
+            router.push(`/postulacion/exito`, undefined, {
               shallow: true
             });
           }}

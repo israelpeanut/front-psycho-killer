@@ -1,4 +1,4 @@
-export const createPostulation = async body => {
+export const updateStepChallenger = async body => {
   // IU6KgrLSDw9QiYM2GgbZfsqwuJO2t0MY
 
   const requestOptions = {
@@ -8,8 +8,8 @@ export const createPostulation = async body => {
   };
 
   console.log("ingreso");
-  // const url = `https://api-pyscho-killer.herokuapp.com/newPostulation`;
-  const url = `http://localhost:3001/newPostulation`;
+  // const url = `https://api-pyscho-killer.herokuapp.com/updateStepChallenger`;
+  const url = `http://localhost:3001/updateStepChallenger`;
   const resp = await fetch(url, requestOptions);
   const data = await resp.json();
 

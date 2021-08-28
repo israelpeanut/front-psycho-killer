@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Form, FormControl, Button, Row, Col } from "react-bootstrap";
 import questions from "../../data/questions.json";
 import { Header } from "../Header/index.js";
+import { updateStepChallenger } from "../../helpers/updateStepChallenger.js";
+import { useRouter } from "next/router";
 
 const missingFieldError = "Hey! No te olvides de esto!";
 
@@ -13,6 +15,9 @@ export const QuestionsForm = ({ onBackHandler, onNextHandler }) => {
     questions: [],
     long_question: { question: profile.long_question, answer: "" }
   });
+
+  const router = useRouter();
+  const { id: vacantId } = router.query;
 
   const handleSubmit = event => {
     const form = event.currentTarget;
@@ -28,6 +33,12 @@ export const QuestionsForm = ({ onBackHandler, onNextHandler }) => {
     }
 
     setValidated(true);
+
+    const body = {
+      id: vacantId
+    };
+
+    updateStepChallenger(body);
 
     onNextHandler();
   };

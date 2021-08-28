@@ -4,8 +4,11 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { Header } from "./../Header";
 import { createPostulation } from "../../helpers/createPostulation";
+import { useRouter } from "next/router";
 
 export const PersonalForm = ({ onBackHandler, onNextHandler }) => {
+  const router = useRouter();
+  const { step = "form", id: vacantId } = router.query;
   const [item, setItem] = useState({ cbkResidencia: undefined });
 
   const { cbkResidencia } = item;
@@ -25,7 +28,7 @@ export const PersonalForm = ({ onBackHandler, onNextHandler }) => {
 
     const body = {
       postulation: {
-        vacantId: "61227e66b98fd2100f4127db",
+        vacantId: vacantId,
         origin: "LANDING",
         active: true,
         stepInterview: "LANDING"
@@ -40,8 +43,10 @@ export const PersonalForm = ({ onBackHandler, onNextHandler }) => {
     };
 
     const data = await createPostulation(body);
+    const { count } = data;
+    const { _id } = count;
 
-    onNextHandler();
+    onNextHandler(_id);
   };
 
   const handleChangeRadio = e => {

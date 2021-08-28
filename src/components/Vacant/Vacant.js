@@ -12,9 +12,10 @@ import { getGift } from "../../helpers/createPostulation";
 
 export const Vacant = () => {
   const router = useRouter();
+  const { id: vacantId } = router.query;
 
   const onClickHandler = async () => {
-    router.push("/postulacion/form");
+    router.push(`/postulacion/form?id=${vacantId}`);
   };
   return (
     <>
@@ -118,19 +119,27 @@ export const Vacant = () => {
             </span>
           </div>
 
-          <div className="row mb-2">
+          <div className="row mb-5">
             {morePointIf.map((description, id) => (
-              <ItemList id={"morePointIf-" + id} description={description} key={id} />
+              <ItemList
+                id={"morePointIf-" + id}
+                description={description}
+                key={id}
+              />
             ))}
           </div>
 
-          <div className="row mb-5">
+          <div className="row mb-2">
             <span className="sub-title-parrf-vacant">Algunos Beneficios</span>
           </div>
 
-          <div className="row mb-2">
+          <div className="row mb-5">
             {someBenefits.map((description, id) => (
-              <ItemList id={"someBenefits-" + id} description={description} key={id} />
+              <ItemList
+                id={"someBenefits-" + id}
+                description={description}
+                key={id}
+              />
             ))}
           </div>
 
