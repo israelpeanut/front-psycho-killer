@@ -24,10 +24,7 @@ export const Vacant = () => {
         <Navbar bg="light">
           <Navbar.Brand href="#">
             <img
-              alt=""
               src="https://res.cloudinary.com/dorrola/image/upload/v1630152665/Logo_Vectorial_khatse.svg"
-              width="30"
-              height="30"
               className="d-inline-block align-top ms-3"
               alt="Responsive image"
               width="87"
@@ -38,10 +35,7 @@ export const Vacant = () => {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Brand href="#">
               <img
-                alt=""
                 src="https://res.cloudinary.com/dorrola/image/upload/v1630155103/VectorMenu_v2k8ow.png"
-                width="30"
-                height="30"
                 className="img-responsive d-flex align-items-end flex-column"
                 alt="Responsive image"
                 width="24"
